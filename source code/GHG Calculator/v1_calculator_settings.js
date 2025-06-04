@@ -1,3 +1,6 @@
+/*
+The functions in this file recodes the user submitted values to a form that allows for the calculation of the GHG emissions. 
+*/
 function getDiet(val) {
     let diet = ['', 'omnivore', 'flexitarian', 'vegetarian', 'vegan'];
     let choice = extractSelectedChoices(val);
@@ -101,6 +104,8 @@ function parseIntOrZero(answer) {
     return isNaN(parsed) ? 0 : parsed;
 }
 
+// This function stores the QIDs from Qualtrics in an object which can be referenced in the GHG emissions calculations (ghg_emissions.js)
+
 function formatSurveySettings(data) {
     var surveySettings = {
         hasAccessToCar: getCarAccess(data.q1),
@@ -114,10 +119,10 @@ function formatSurveySettings(data) {
         numMediumFlights: getNbFlights(data.q8, data.q10),
         numLongFlights: getNbFlights(data.q8, data.q11),
         diet: getDiet(data.q12),
-        houseType: getHouseType(data.q13),      // flat, detached, semi-detached
-        houseStandard: getResidenceStandard(data.q14),     // old, renovated, new, minergie
+        houseType: getHouseType(data.q13),      
+        houseStandard: getResidenceStandard(data.q14),     
         houseSize: getHouseSize(data.q15),
-        heatingType: getHeatingType(data.q16),             // oil, gas, electric, heat-pump, wood
+        heatingType: getHeatingType(data.q16),           
     };
 
     return surveySettings;
