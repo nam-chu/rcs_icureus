@@ -1,6 +1,24 @@
-// Start by declaring relevant data structures
+/*
+Prepared by: Hoang-Nam Chu
+References: ETH Zurich Swiss Panel
 
-// Diet
+I've prepared this code with the help of the ETH Zurich source code that I've attached in this repository. I'll be commenting relevant data structures to explain the purpose of the code.
+*/
+
+/*
+
+Below are data structures that define the greenhouse gas emissions (GHG) for four different class of activities:
+
+1) Diet, 
+2) Flight,
+3) Ground Transportation (Mobility),
+4) Home Heating
+
+Note that units have been somewhat standardized. 
+For example, the dietParameter map defines diet-choice-ghg emissions pairs in tonnage. The rest follows suits. 
+
+Note that there borrowed code in this file so not everything is needed. However, the code is able to compute the correct GHG emissions. 
+*/
 const dietParameter = new Map([
     ["omnivore", 1.837],
     ["flexitarian", 1.495],
@@ -79,7 +97,7 @@ const heatingEfficiency = new Map([
     ["heat-pump", 3.00],
     ["wood", 0.85],
     ["district-heating", 1.0],
-    ["unknown", 0.80] // this should be the same as oil
+    ["unknown", 0.80] 
 ]);
 
 const houseStandardParameter = new Map([
@@ -88,90 +106,6 @@ const houseStandardParameter = new Map([
     ["new", 40],
     ["minergie", 20]
 ]);
-
-function getStartingTotal(surveySettings) {
-    var evaluatorSettings = buildEvaluatorSettings(surveySettings);
-    return calculateActualValues(evaluatorSettings);
-}
-
-function buildEvaluatorSettings(surveySettings) {
-     evaluatorSettings = {
-        // global settings
-        enableDebug: surveySettings.enableDebug,
-        language: surveySettings.language,
-        locale: surveySettings.locale,
-        hiddenTextSelector: surveySettings.hiddenTextSelector,
-        
-        diet: {
-            selected: false,
-            diet: surveySettings.diet,
-            selectDiet: surveySettings.diet
-        },
-        shortFlights: {
-            selected: false,
-            visible: surveySettings.numShortFlights > 0,
-            numShortFlights: surveySettings.numShortFlights,
-            select: 1
-        },
-        mediumFlights: {
-            selected: false,
-            // enabled: true,
-            visible: surveySettings.numMediumFlights > 0,
-            numMediumFlights: surveySettings.numMediumFlights,
-            select: 1,
-        },
-
-        longFlights: {
-            selected: false,
-            // enabled: true,
-            visible: surveySettings.numLongFlights > 0,
-            numLongFlights: surveySettings.numLongFlights,
-            select: 1
-        },
-        reduceKilometrageCar: {
-            selected: false,
-            // enabled: true,
-            visible: surveySettings.hasAccessToCar,
-            carKilometrageYearly: surveySettings.carKilometrageYearly,
-            select: 1.0
-        },
-        compensateKilometrageCarByNone: {
-            // enabled: true,
-            visible: surveySettings.hasAccessToCar,
-            compensatedKilometrageYearly: 0.0,
-            select: 0.0,
-        },
-        replaceCar: {
-            selected: false,
-            // enabled: true,
-            visible: surveySettings.ownsCar,
-            car: surveySettings.car,
-            selectCar: surveySettings.car,
-        },
-        actualCar: surveySettings.car,
-
-        // personal transportation
-        trainKilometrageWeekly: surveySettings.trainKilometrageWeekly,
-        tramKilometrageWeekly: surveySettings.tramKilometrageWeekly,
-        busKilometrageWeekly: surveySettings.busKilometrageWeekly,
-        
-        // home heating 
-        houseType: surveySettings.houseType,
-        houseStandard: surveySettings.houseStandard,
-        houseSize: surveySettings.houseSize,
-        heatingType: surveySettings.heatingType,
-
-        // number of housemembers, probably not necessary
-        householdMembers: surveySettings.householdMembers,
-    };
-
-    evaluatorSettings.initialFlight = calculateFlight(evaluatorSettings);
-    evaluatorSettings.initialMobility = calculateMobility(evaluatorSettings);
-    evaluatorSettings.initialDiet = calculateDiet(evaluatorSettings);
-    evaluatorSettings.initialHouse = calculateHouse(evaluatorSettings);
-
-    return evaluatorSettings;
-}
 
 function calculateActualValues(settings) {
 
