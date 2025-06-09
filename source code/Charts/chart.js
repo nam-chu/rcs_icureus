@@ -1,27 +1,27 @@
 Qualtrics.SurveyEngine.addOnReady(function() {
     console.log("GHG Footprint script started.");
   
-    // ===== Step 1: Survey answers from piped text =====
+    // These are the survey answers from that are stored in Qualtrics. 
     var qData = {
-      q1  : '${q://QID123/SelectedChoicesRecode}',
-      q2  : '${q://QID1/SelectedChoicesRecode}',
-      q3  : '${q://QID2/SelectedChoicesRecode}',
-      q4  : '${q://QID3/SelectedChoicesRecode}',
-      q5  : '${q://QID4/ChoiceNumericEntryValue/1}',
-      q6  : '${q://QID5/SelectedChoicesRecode}',
-      q7  : '${q://QID201/ChoiceTextEntryValue}',
-      q8  : '${q://QID10/SelectedChoicesRecode}',
-      q9  : '${q://QID12/ChoiceTextEntryValue}',
-      q10 : '${q://QID13/ChoiceTextEntryValue}',
-      q11 : '${q://QID14/ChoiceTextEntryValue}',
-      q12 : '${q://QID21/SelectedChoicesRecode}',
-      q13 : '${q://QID35/SelectedChoicesRecode}',
-      q14 : '${q://QID23/SelectedChoicesRecode}',
-      q15 : '${q://QID25/ChoiceTextEntryValue}',
-      q16 : '${q://QID26/SelectedChoicesRecode}'
+      q1  : '${q://QID123/SelectedChoicesRecode}', // Do you have access to a car?
+      q2  : '${q://QID1/SelectedChoicesRecode}', // What best describes the access (own a car, company car)
+      q3  : '${q://QID2/SelectedChoicesRecode}', // What is the fuel type of the car (eg. petrol)
+      q4  : '${q://QID3/SelectedChoicesRecode}', // What is the size of the car?
+      q5  : '${q://QID4/ChoiceNumericEntryValue/1}', // What is your yearly mileage?
+      q6  : '${q://QID5/SelectedChoicesRecode}', // How often do you use public transit?
+      q7  : '${q://QID201/ChoiceTextEntryValue}', // What is the annual usage of public transit?
+      q8  : '${q://QID10/SelectedChoicesRecode}', // How often do you travel by plane?
+      q9  : '${q://QID12/ChoiceTextEntryValue}', // What are the number of short flights?
+      q10 : '${q://QID13/ChoiceTextEntryValue}', // What are the number of medium flights?
+      q11 : '${q://QID14/ChoiceTextEntryValue}', // What are the number of long flights?
+      q12 : '${q://QID21/SelectedChoicesRecode}', // What is your diet (eg. omnivore)
+      q13 : '${q://QID35/SelectedChoicesRecode}', // What best describes your residence?
+      q14 : '${q://QID23/SelectedChoicesRecode}', // When was your house built?
+      q15 : '${q://QID25/ChoiceTextEntryValue}', // What is your household size in square foot?
+      q16 : '${q://QID26/SelectedChoicesRecode}' // What is your heating type?
     };
   
-    // ===== Preselect toggles with fallback =====
+    // 
     var mappings = {
       dietToggle: {
         value: qData.q12,
