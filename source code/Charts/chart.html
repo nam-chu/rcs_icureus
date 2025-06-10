@@ -1,0 +1,112 @@
+<!-- === Style override: Makes radio buttons visible in Qualtrics preview === -->
+<style type="text/css">
+  /* force all native radios back into view */
+  input[type="radio"] {
+    all: unset !important;
+    appearance: radio !important;
+    -webkit-appearance: radio !important;
+    width: 16px !important;
+    height: 16px !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    margin-right: 6px !important;
+  }
+</style>
+
+<!-- === Emissions Total Display === -->
+<div id="footprint" style="text-align: center; font-size: 16px; margin-bottom: 10px; color: #333;">
+  &nbsp;
+</div>
+
+<!-- === Chart Container for Carbon Comparison === -->
+<div id="chartContainerComparison" style="max-width: 600px; margin: auto;">
+  <canvas id="carbonChartComparison" width="450" height="320" style="display: block;"></canvas>
+</div>
+
+<!-- === Flight Emissions Toggle Section === -->
+<div style="max-width: 700px; margin: 12px auto; font-size: 14px; text-align: left; color: #333;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: nowrap;">
+    <strong style="margin-right: 10px;">Flight Emissions:</strong>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="flightToggle" value="with" checked="checked" />
+      Current flights
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="flightToggle" value="additional" />
+      Additional long-haul flight
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="flightToggle" value="without" />
+      No flights
+    </label>
+  </div>
+</div>
+
+<!-- === Heating Type Toggle Section === -->
+<div style="max-width: 700px; margin: 12px auto; font-size: 14px; text-align: left; color: #333;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: nowrap;">
+    <strong style="margin-right: 10px;">Heating (primary):</strong>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="heatToggle" value="oil" />
+      Heating oil
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="heatToggle" value="gas" />
+      Natural gas
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="heatToggle" value="pump" />
+      Electric
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="heatToggle" value="wood" />
+      Wood
+    </label>
+  </div>
+</div>
+
+<!-- === Vehicle Type Toggle Section === -->
+<div style="max-width: 700px; margin: 12px auto; font-size: 14px; text-align: left; color: #333;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: nowrap;">
+    <strong style="margin-right: 10px;">Vehicle Type:</strong>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="vehicleToggle" value="petrol" checked="checked" />
+      Gas
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="vehicleToggle" value="hybrid" />
+      Hybrid
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="vehicleToggle" value="electric" />
+      Electric
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="vehicleToggle" value="none" />
+      No vehicle
+    </label>
+  </div>
+</div>
+
+<!-- === Diet Type Toggle Section === -->
+<div style="max-width: 700px; margin: 12px auto; font-size: 14px; text-align: left; color: #333;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: nowrap;">
+    <strong style="margin-right: 10px;">Diet Type:</strong>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="dietToggle" value="omnivore" checked="checked" />
+      Omnivore
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="dietToggle" value="flexitarian" />
+      Flexitarian
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="dietToggle" value="vegetarian" />
+      Vegetarian
+    </label>
+    <label style="display: flex; align-items: center; gap: 6px;">
+      <input type="radio" name="dietToggle" value="vegan" />
+      Vegan
+    </label>
+  </div>
+</div>
