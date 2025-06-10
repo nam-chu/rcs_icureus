@@ -1,6 +1,6 @@
 /*
 Prepared by: Hoang-Nam Chu
-References: ETH Zurich Swiss Panel
+References: ETH Zurich Swiss Mobility Panel
 
 I've prepared this code with the help of the ETH Zurich source code that I've attached in this repository. I'll be commenting relevant data structures to explain the purpose of the code.
 */
