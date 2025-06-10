@@ -1,5 +1,7 @@
 /*
 The functions in this file recodes the user submitted values to a form that allows for the calculation of the GHG emissions. 
+
+Some of these functions were reused from the Swiss Mobility Panel team. Others were added by chatGPT to account for the Qualtrics interface stripping or retaining certain parts of the user's input: e.g., whitespace in an answer.
 */
 function getDiet(val) {
     let diet = ['', 'omnivore', 'flexitarian', 'vegetarian', 'vegan'];
